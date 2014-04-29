@@ -14,7 +14,9 @@ def getcomic(path):
 		if not parts[-2]=='Comics':
 			if not os.path.exists(parts[-2]):
 				os.makedirs(parts[-2])
-		pathname=parts[-2]+'/'+parts[-1]
+			pathname=parts[-2]+'/'+parts[-1]
+		else:
+			pathname=parts[-1]
 		if not os.path.exists(pathname):
 			file=urllib.urlopen(imgpath.group(0)).read()
 			outputfile=open(pathname,'wb')
@@ -25,4 +27,4 @@ def getcomic(path):
     getcomic(rs.geturl())
     return
 
-getcomic("http://explosm.net/comics")	
+getcomic("http://explosm.net/comics")
